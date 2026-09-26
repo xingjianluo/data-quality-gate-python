@@ -1,0 +1,7 @@
+[
+  {"order_id": "A1", "user": "u1", "amount": 99.5, "quantity": 2, "updated_at": "2026-09-26T08:00:00Z"},
+  {"order_id": "A2", "user": "u2", "amount": 10.0, "quantity": 1, "updated_at": "2026-09-26T08:05:00Z"},
+  {"order_id": "A3", "user": "u3", "amount": -5.0, "quantity": 1, "updated_at": "2026-09-26T08:10:00Z"},
+  {"order_id": "A3", "user": "u3", "amount": -5.0, "quantity": 1, "updated_at": "2026-09-26T08:10:00Z"},
+  {"order_id": "A4", "amount": 20.0, "quantity": 4, "updated_at": "2020-01-01T00:00:00Z"}
+]
