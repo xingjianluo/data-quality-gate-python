@@ -1,0 +1,10 @@
+{
+  "dataset_id": "orders-demo",
+  "rows": [
+    {"order_id": "A1", "amount": 99.5, "currency": "CNY", "created_ts": 1780000000, "updated_ts": 1780000100},
+    {"order_id": "A2", "amount": 20.0, "currency": "CNY", "created_ts": 1780000200, "updated_ts": 1780000300},
+    {"order_id": "A2", "amount": 20.0, "currency": "CNY", "created_ts": 1780000200, "updated_ts": 1780000300},
+    {"order_id": "A3", "amount": -5, "currency": "CNY", "created_ts": 1780000400, "updated_ts": 1780000350},
+    {"order_id": "A4", "currency": "CNY", "created_ts": 1780000500, "updated_ts": 1780000600}
+  ]
+}
