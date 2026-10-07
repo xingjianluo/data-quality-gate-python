@@ -65,3 +65,48 @@ class RunReport:
     dataset_digest: str
     status: RunStatus
     results: tuple[RuleResult, ...] = ()
+
+
+class DiffKind(str, enum.Enum):
+    """前后两个数据内容版本之间，单条违规的变化类别。"""
+
+    NEW = "new"                  # 新出现的违规（旧版本没有，新版本有）
+    FIXED = "fixed"              # 已修好的违规（旧版本有，新版本没有）
+    UNRESOLVED = "unresolved"    # 仍未解决的违规（两个版本都有）
+
+
+@dataclass(frozen=True)
+class ViolationItem:
+    """批次差异中的单条违规明细，可下钻到规则与分片。"""
+
+    kind: DiffKind
+    rule_id: str
+    rule_version: int
+    shard: str
+    reason: str = ""
+    evidence: dict[str, Any] = field(default_factory=dict)
+
+
+@dataclass(frozen=True)
+class ContentDiff:
+    """同一数据集、同一规则版本下，两个数据内容版本的结论差异。"""
+
+    dataset_id: str
+    rule_version: int | None
+    old_digest: str
+    new_digest: str
+    new_items: tuple[ViolationItem, ...] = ()
+    fixed_items: tuple[ViolationItem, ...] = ()
+    unresolved_items: tuple[ViolationItem, ...] = ()
+
+    @property
+    def new_count(self) -> int:
+        return len(self.new_items)
+
+    @property
+    def fixed_count(self) -> int:
+        return len(self.fixed_items)
+
+    @property
+    def unresolved_count(self) -> int:
+        return len(self.unresolved_items)
