@@ -8,6 +8,9 @@ from dqgate.models import (
     RunReport,
     RunStatus,
 )
+from dqgate.monitor import BatchDiff, ViolationChange, diff_results, diff_stored
+from dqgate.runner import QualityRunner, derive_run_id
+from dqgate.store import DuplicateResultError, ResultStore
 
 __all__ = [
     "CheckStatus",
@@ -16,4 +19,12 @@ __all__ = [
     "RuleResult",
     "RunReport",
     "RunStatus",
+    "BatchDiff",
+    "ViolationChange",
+    "diff_results",
+    "diff_stored",
+    "QualityRunner",
+    "derive_run_id",
+    "DuplicateResultError",
+    "ResultStore",
 ]
